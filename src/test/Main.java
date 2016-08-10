@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         List list = new ArrayList();
 
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             list.add("test" + i);
         }
 

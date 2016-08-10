@@ -25,7 +25,7 @@ public class ArrayList implements List {
 
     @Override
     public void add(Object o) {
-        if ((this.anArray.length - 1) == this.size()) {
+        if ((this.anArray.length - 1) == size) {
             //System.out.println("ERROR!");
             complexAdd(o);
             System.out.println("COMPLEX length " + this.anArray.length + " SIZE: " + this.size());
