@@ -59,13 +59,15 @@ public class ArrayList<E> implements List<E> {
     @Override
     public void remove(int index) {
         if ( (this.anArray.length-1) < index ) {
+            System.out.println( "Ooops" );
             throw new ArrayIndexOutOfBoundsException( "Ooops!" );
         } else {
             this.anArray[index] = null;
-           // if (this.anArray[index])
-
+            for (int i =index; i < this.anArray.length -1; i++ ) {
+                this.anArray[index] = this.anArray[index+1];
+            }
+            size--;
         }
-
     }
 
     @Override
