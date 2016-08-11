@@ -11,7 +11,6 @@ public class ArrayList<E> implements List<E> {
     private Object[] anArray;
     private Object[] newArray;
 
-
     private int size = 0;
 
     public ArrayList() {
@@ -26,7 +25,6 @@ public class ArrayList<E> implements List<E> {
     @Override
     public void add(E o) {
         if ((this.anArray.length - 1) == size) {
-            //System.out.println("ERROR!");
             complexAdd(o);
             System.out.println("COMPLEX length " + this.anArray.length + " SIZE: " + this.size());
 
@@ -53,20 +51,35 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        if ((this.anArray.length - 1) < index) {
+            throw new ArrayIndexOutOfBoundsException("Oooops!");
+        } else {
+            return (E) this.anArray[index];
+        }
     }
 
     @Override
     public void remove(int index) {
         if ((this.anArray.length - 1) < index) {
-            System.out.println("Ooops");
             throw new ArrayIndexOutOfBoundsException("Ooops!");
         } else {
-            this.anArray[index] = null;
-            for (int i = index; i < this.anArray.length - 1; i++) {
-                this.anArray[index] = this.anArray[index + 1];
+            Object[] temp = new Object[this.anArray.length];
+            //this.anArray[index] = null;
+            int j = 0;
+            for (int i = 0; i < this.size; i++) {
+                if (i == index) {
+                    temp[j] = this.anArray[++i];
+                } else {
+                    temp[j] = this.anArray[i];
+                }
+                j++;
+
+                //this.anArray[index] = this.anArray[i + 1];
             }
+            this.anArray = temp;
+//            this.anArray[] = null;
             size--;
+
         }
     }
 
