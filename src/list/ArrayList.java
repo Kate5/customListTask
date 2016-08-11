@@ -5,7 +5,7 @@ import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 /**
  * Created by a1 on 10.08.16.
  */
-public class ArrayList implements List {
+public class ArrayList<E> implements List<E> {
 
     private int DEFAULT_SIZE = 10;
     private Object[] anArray;
@@ -24,7 +24,7 @@ public class ArrayList implements List {
 
 
     @Override
-    public void add(Object o) {
+    public void add(E o) {
         if ((this.anArray.length - 1) == size) {
             //System.out.println("ERROR!");
             complexAdd(o);
@@ -36,12 +36,12 @@ public class ArrayList implements List {
         }
     }
 
-    private void simpleAdd(Object value) {
+    private void simpleAdd(E value) {
         this.anArray[size] = value;
         size++;
     }
 
-    private void complexAdd(Object value) {
+    private void complexAdd(E value) {
         newArray = new Object[this.anArray.length + DEFAULT_SIZE];
         for (int i = 0; i < this.size(); i++) {
             newArray[i] = this.anArray[i];
@@ -52,12 +52,19 @@ public class ArrayList implements List {
     }
 
     @Override
-    public Object get(int index) {
+    public E get(int index) {
         return null;
     }
 
     @Override
     public void remove(int index) {
+        if ( (this.anArray.length-1) < index ) {
+            throw new ArrayIndexOutOfBoundsException( "Ooops!" );
+        } else {
+            this.anArray[index] = null;
+           // if (this.anArray[index])
+
+        }
 
     }
 
