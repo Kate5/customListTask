@@ -35,5 +35,7 @@ public class Main {
         list.add(999);
         System.out.println( );
 
+        list.get(7);
+
     }
 }

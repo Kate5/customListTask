@@ -45,7 +45,7 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        if ((this.anArray.length - 1) < index) {
+        if ((this.size) < index) {
             throw new ArrayIndexOutOfBoundsException("Oooops!");
         } else {
             return (E) this.anArray[index];
