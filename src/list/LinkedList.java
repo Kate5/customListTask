@@ -5,9 +5,17 @@ package list;
  */
 public class LinkedList<E> implements List<E> {
 
+    public LinkedList() {
+    }
+
+    private int size = 0;
+
     @Override
     public void add(E e) {
-
+        if (size==0) {
+            Entry<E> entry = new Entry<E>(e, null, null);
+        } else {
+        }
     }
 
     @Override
